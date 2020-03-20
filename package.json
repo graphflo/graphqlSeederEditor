@@ -1,0 +1,26 @@
+{
+  "name": "editor",
+  "version": "1.0.0",
+  "description": "Editor for Grahql Seeder",
+  "author": "Dandre Allen",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "codemirror-graphql": "^0.11.6",
+    "cross-env": "^5.2.0",
+    "normalize.css": "^8.0.1",
+    "nuxt": "^2.12.0",
+    "vue-codemirror": "^4.0.6",
+    "vue-multipane": "^0.9.5"
+  },
+  "devDependencies": {
+    "node-sass": "^4.13.1",
+    "nodemon": "^1.11.0",
+    "sass-loader": "^8.0.2"
+  }
+}
