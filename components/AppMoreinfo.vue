@@ -1,8 +1,6 @@
 <template>
-  <div class="more-info-contain">
+  <div @click="toggleMode" class="more-info-contain">
     <svg
-      @mouseenter="show = !show"
-      @mouseleave="show = !show"
       class="more-info"
       xmlns="http://www.w3.org/2000/svg"
       width="24" height="24"
@@ -14,12 +12,12 @@
       <path d="M12 11c-0.6 0-1 0.4-1 1v4c0 0.6 0.4 1 1 1s1-0.4 1-1v-4c0-0.6-0.4-1-1-1z"></path>
       <path d="M11.3 7.3c-0.2 0.2-0.3 0.4-0.3 0.7s0.1 0.5 0.3 0.7c0.2 0.2 0.4 0.3 0.7 0.3s0.5-0.1 0.7-0.3c0.2-0.2 0.3-0.4 0.3-0.7s-0.1-0.5-0.3-0.7c-0.4-0.4-1-0.4-1.4 0z"></path>
     </svg>
-    <transition name="appear">
+    <!-- <transition name="appear">
       <div class="findoutmore" v-if="show">
         <h2>What is this?</h2>
         <p>Often when we're excited about contributing to a project, it takes a little while to understand the codebase even before we get started. It's estimated that developers spend 70% of their time reading code and only 30% writing. This project documents how Vue.js is set up with special notes taken from a Vue core meeting with Evan You to guide people through the directory structure and give context to how and why things are set up the way that they are so that they can get set up to contribute as soon as possible.</p>
       </div>
-    </transition>
+    </transition> -->
   </div>
 </template>
 
@@ -29,7 +27,13 @@
             return {
                 show: false
             }
-        }
+        },
+        methods: {
+            toggleMode() {
+                // this.$store.commit('toggleDark')
+                this.$bus.$emit('toggleHelp')
+            }
+        },
     }
 </script>
 

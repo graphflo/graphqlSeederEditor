@@ -1,6 +1,16 @@
 const pkg = require("./package");
+// only add `router.base = '/<repository-name>/'` if `DEPLOY_ENV` is `GH_PAGES`
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/jsonfarmer-editor/'
+  }
+} : {}
 
 module.exports = {
+//   buildDir: 'docs',
+  generate: {
+    dir:"docs"
+  },
   mode: "spa",
 
   /*
@@ -44,5 +54,6 @@ module.exports = {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
-  }
+  },
+  ...routerBase
 };
