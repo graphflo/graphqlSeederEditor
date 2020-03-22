@@ -2,7 +2,7 @@ const pkg = require("./package");
 // only add `router.base = '/<repository-name>/'` if `DEPLOY_ENV` is `GH_PAGES`
 const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
   router: {
-    base: '/jsonfarmer-editor/'
+    base: '/jsonfarmer-editor/docs/'
   }
 } : {}
 
