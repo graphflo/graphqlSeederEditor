@@ -98,33 +98,29 @@ import Collapse from '~/components/Collapse.vue'
 
 let codesample = `
 {
-    author {
-      firstname: firstName
-      lastname: lastName
-      # email: email
-      age: integer(min: 1, max: 10)
-      active:bool
-      city: city
-      country: country
-      phone: phone
-      orders  {
-        create @repeat(min: 1, max: 5){
-          orderdate: date(min: null, max: null )
-          ordernumber: objectId
-          totalamount: floating(min: 500, max: 1200, fixed: 2, format: "0,0.00")
-          orderitems {
-            create @repeat(min: 1, max: 7) {
-              unitprice: floating(min: 5, max: 200, fixed: 2, format: "0,0.00")
-              quantity: integer(min: 1, max: 100)
-              product {
-                connect: randomID
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+	suppliers @repeat(min: 1, max: 1) {
+		companyName: company
+		contactName: findName
+		contactTitle: jobTitle
+		email: email(domain:"google.com")
+		city: city
+		state: state(useAbbr:true)
+		country: country
+		phone: phone
+		fax: phone        
+		products {
+			create @repeat(min: 5, max: 15){
+				name: productName
+                modelNumber:natural(max:999999)
+				unitPrice: price(symbol:"$" min:50 max:4000)
+				color: color
+				material: productMaterial
+				isDiscontinued: bool
+				image: image
+			}                
+		}
+	}
+}
 `;
 export default {
 	data() {
