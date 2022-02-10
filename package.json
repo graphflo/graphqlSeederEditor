@@ -24,7 +24,7 @@
     "vue2-collapse": "^1.0.15"
   },
   "devDependencies": {
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "nodemon": "^1.11.0",
     "sass-loader": "^8.0.2"
   }
